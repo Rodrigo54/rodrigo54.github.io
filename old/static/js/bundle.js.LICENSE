@@ -1,0 +1,2593 @@
+/******/
+
+// webpackBootstrap
+
+// The module cache
+
+// The require function
+
+// Check if module is in cache
+
+// Create a new module (and put it into the cache)
+
+// Execute the module function
+
+// Return the exports of the module
+
+// Flag the module as loaded
+
+// expose the modules object (__webpack_modules__)
+
+// Load entry module and return exports
+
+// expose the module cache
+
+// define getter function for harmony exports
+
+// define __esModule on exports
+
+// create a fake namespace object
+
+// mode & 1: value is a module id, require it
+
+// mode & 2: merge all properties of value into the ns
+
+// mode & 4: return value when already ns object
+
+// mode & 8|1: behave like require
+
+// getDefaultExport function for compatibility with non-harmony modules
+
+// Object.prototype.hasOwnProperty.call
+
+// __webpack_public_path__
+
+/************************************************************************/
+
+/* 0 */
+
+/***/
+
+/*!
+ Material Components for the Web
+ Copyright (c) 2019 Google Inc.
+ License: MIT
+*/
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * @template A
+ */
+
+/** @protected {!A} */
+
+/** @return enum{cssClasses} */
+
+// Classes extending MDCFoundation should implement this method to return an object which exports every
+
+// CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
+
+/** @return enum{strings} */
+
+// Classes extending MDCFoundation should implement this method to return an object which exports all
+
+// semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
+
+/** @return enum{numbers} */
+
+// of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
+
+/** @return {!Object} */
+
+// Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
+
+// way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
+
+// validation.
+
+/**
+     * @param {A=} adapter
+     */
+
+// Subclasses should override this method to perform initialization routines (registering events, etc.)
+
+// Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
+
+/* harmony default export */
+
+/* harmony import */
+
+/**
+ * @template F
+ */
+
+/** @protected {!Element} */
+
+// Note that we initialize foundation here and not within the constructor's default param so that
+
+// this.root_ is defined and can be used within the foundation class.
+
+/** @protected {!F} */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCComponent}
+     */
+
+// Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
+
+// returns an instantiated component with its root set to that element. Also note that in the cases of
+
+// subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
+
+// from getDefaultFoundation().
+
+/**
+     * @param {!Element} root
+     * @param {F=} foundation
+     * @param {...?} args
+     */
+
+// Subclasses can override this to do any additional setup work that would be considered part of a
+
+// "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+
+// initialized. Any additional arguments besides root and foundation will be passed in here.
+
+/**
+     * @return {!F} foundation
+     */
+
+// Subclasses must override this method to return a properly configured foundation class for the
+
+// component.
+
+// Subclasses should override this method if they need to perform work to synchronize with a host DOM
+
+// object. An example of this would be a form control wrapper that needs to synchronize its internal state
+
+// to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
+
+// reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
+
+// Subclasses may implement this method to release any resources / deregister any listeners they have
+
+// attached. An example of this might be deregistering a resize event from the window object.
+
+/**
+     * Wrapper method to add an event listener to the component's root element. This is most useful when
+     * listening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+/**
+     * Wrapper method to remove an event listener to the component's root element. This is most useful when
+     * unlistening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+/**
+     * Fires a cross-browser-compatible custom event from the component root of the given type,
+     * with the given data.
+     * @param {string} evtType
+     * @param {!Object} evtData
+     * @param {boolean=} shouldBubble
+     */
+
+/**
+ * @license
+ * Copyright 2017 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/* eslint no-unused-vars: [2, {"args": "none"}] */
+
+/**
+ * Adapter for MDC Floating Label.
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the floating label into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Adds a class to the label element.
+     * @param {string} className
+     */
+
+/**
+     * Removes a class from the label element.
+     * @param {string} className
+     */
+
+/**
+     * Returns the width of the label element.
+     * @return {number}
+     */
+
+/**
+     * Registers an event listener on the root element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Deregisters an event listener on the root element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/* unused harmony default export */
+
+/* harmony export (binding) */
+
+/* harmony reexport (binding) */
+
+/* eslint-disable no-unused-vars */
+
+/* eslint-enable no-unused-vars */
+
+/**
+ * @extends {MDCComponent<!MDCTextFieldFoundation>}
+ * @final
+ */
+
+/**
+   * @param {...?} args
+   */
+
+/** @private {?Element} */
+
+/** @type {?MDCRipple} */
+
+/** @private {?MDCLineRipple} */
+
+/** @private {?MDCTextFieldHelperText} */
+
+/** @private {?MDCTextFieldIcon} */
+
+/** @private {?MDCFloatingLabel} */
+
+/** @private {?MDCNotchedOutline} */
+
+/**
+   * @param {!Element} root
+   * @return {!MDCTextField}
+   */
+
+/* default */
+
+/**
+     * @param {(function(!Element): !MDCRipple)=} rippleFactory A function which
+     * creates a new MDCRipple.
+     * @param {(function(!Element): !MDCLineRipple)=} lineRippleFactory A function which
+     * creates a new MDCLineRipple.
+     * @param {(function(!Element): !MDCTextFieldHelperText)=} helperTextFactory A function which
+     * creates a new MDCTextFieldHelperText.
+     * @param {(function(!Element): !MDCTextFieldIcon)=} iconFactory A function which
+     * creates a new MDCTextFieldIcon.
+     * @param {(function(!Element): !MDCFloatingLabel)=} labelFactory A function which
+     * creates a new MDCFloatingLabel.
+     * @param {(function(!Element): !MDCNotchedOutline)=} outlineFactory A function which
+     * creates a new MDCNotchedOutline.
+     */
+
+// Has both icons.
+
+/** @type {!RippleCapableSurface} */
+
+/**
+     * Initiliazes the Text Field's internal state based on the environment's
+     * state.
+     */
+
+/**
+     * @return {string} The value of the input.
+     */
+
+/**
+     * Focuses the input element.
+     */
+
+/**
+     * Recomputes the outline SVG path for the outline element.
+     */
+
+/**
+     * @return {!MDCTextFieldFoundation}
+     */
+
+/** @type {!MDCTextFieldAdapter} */
+
+/**
+     * @return {!{
+     *   shakeLabel: function(boolean): undefined,
+     *   floatLabel: function(boolean): undefined,
+     *   hasLabel: function(): boolean,
+     *   getLabelWidth: function(): number,
+     * }}
+     */
+
+/**
+     * @return {!{
+     *   activateLineRipple: function(): undefined,
+     *   deactivateLineRipple: function(): undefined,
+     *   setLineRippleTransformOrigin: function(number): undefined,
+     * }}
+     */
+
+/**
+     * @return {!{
+     *   notchOutline: function(number, boolean): undefined,
+     *   hasOutline: function(): boolean,
+     * }}
+     */
+
+/**
+     * @return {!{
+     *   registerInputInteractionHandler: function(string, function()): undefined,
+     *   deregisterInputInteractionHandler: function(string, function()): undefined,
+     *   getNativeInput: function(): ?Element,
+     * }}
+     */
+
+/**
+     * Returns a map of all subcomponents to subfoundations.
+     * @return {!FoundationMapType}
+     */
+
+/**
+     * @param {string} value The value to set on the input.
+     */
+
+/**
+     * @return {boolean} True if the Text Field is disabled.
+     */
+
+/**
+     * @param {boolean} disabled Sets the Text Field disabled or enabled.
+     */
+
+/**
+     * @return {boolean} valid True if the Text Field is valid.
+     */
+
+/**
+     * @param {boolean} valid Sets the Text Field valid or invalid.
+     */
+
+/**
+     * @return {boolean} True if the Text Field is required.
+     */
+
+/**
+     * @param {boolean} required Sets the Text Field to required.
+     */
+
+/**
+     * @return {string} The input element's validation pattern.
+     */
+
+/**
+     * @param {string} pattern Sets the input element's validation pattern.
+     */
+
+/**
+     * @return {number} The input element's minLength.
+     */
+
+/**
+     * @param {number} minLength Sets the input element's minLength.
+     */
+
+/**
+     * @return {number} The input element's maxLength.
+     */
+
+/**
+     * @param {number} maxLength Sets the input element's maxLength.
+     */
+
+// Chrome throws exception if maxLength is set < 0
+
+/**
+     * @return {string} The input element's min.
+     */
+
+/**
+     * @param {string} min Sets the input element's min.
+     */
+
+/**
+     * @return {string} The input element's max.
+     */
+
+/**
+     * @param {string} max Sets the input element's max.
+     */
+
+/**
+     * @return {string} The input element's step.
+     */
+
+/**
+     * @param {string} step Sets the input element's step.
+     */
+
+/**
+     * Sets the helper text element content.
+     * @param {string} content
+     */
+
+/**
+     * Sets the aria label of the leading icon.
+     * @param {string} label
+     */
+
+/**
+     * Sets the text content of the leading icon.
+     * @param {string} content
+     */
+
+/**
+     * Sets the aria label of the trailing icon.
+     * @param {string} label
+     */
+
+/**
+     * Sets the text content of the trailing icon.
+     * @param {string} content
+     */
+
+/**
+     * Enables or disables the use of native validation. Use this for custom validation.
+     * @param {boolean} useNativeValidation Set this to false to ignore native input validation.
+     */
+
+/** @enum {string} */
+
+/**
+ * @extends {MDCComponent<!MDCFloatingLabelFoundation>}
+ * @final
+ */
+
+/**
+     * Styles the label to produce the label shake for errors.
+     * @param {boolean} shouldShake styles the label to shake by adding shake class
+     * if true, otherwise will stop shaking by removing shake class.
+     */
+
+/**
+     * Styles label to float/dock.
+     * @param {boolean} shouldFloat styles the label to float by adding float class
+     * if true, otherwise docks the label by removing the float class.
+     */
+
+/**
+     * @return {number}
+     */
+
+/**
+     * @return {!MDCFloatingLabelFoundation}
+     */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCFloatingLabel}
+     */
+
+/**
+ * @extends {MDCFoundation<!MDCTextFieldAdapter>}
+ * @final
+ */
+
+/** @type {!FoundationMapType} */
+
+/** @type {!MDCTextFieldHelperTextFoundation|undefined} */
+
+/** @type {!MDCTextFieldIconFoundation|undefined} */
+
+/** @private {boolean} */
+
+/** @private {function(): undefined} */
+
+/** @private {function(!Event): undefined} */
+
+/** @private {function(!Array): undefined} */
+
+/** @private {!MutationObserver} */
+
+/** @return {boolean} */
+
+/**
+     * @return {boolean}
+     * @private
+     */
+
+/**
+     * {@see MDCTextFieldAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCTextFieldAdapter}
+     */
+
+/** @return enum {string} */
+
+/**
+     * @param {!MDCTextFieldAdapter} adapter
+     * @param {!FoundationMapType=} foundationMap Map from subcomponent names to their subfoundations.
+     */
+
+/**
+     * Handles user interactions with the Text Field.
+     */
+
+/**
+     * Handles validation attribute changes
+     * @param {!Array<string>} attributesList
+     */
+
+/**
+     * Opens/closes the notched outline.
+     * @param {boolean} openNotch
+     */
+
+/**
+     * Activates the text field focus state.
+     */
+
+/**
+     * Sets the line ripple's transform origin, so that the line ripple activate
+     * animation will animate out from the user's click location.
+     * @param {!Event} evt
+     */
+
+/**
+     * Activates the Text Field's focus state in cases when the input value
+     * changes without user input (e.g. programatically).
+     */
+
+/**
+     * Deactivates the Text Field's focus state.
+     */
+
+/**
+     * @return {string} The value of the input Element.
+     */
+
+/**
+     * @param {string} value The value to set on the input Element.
+     */
+
+// Prevent Safari from moving the caret to the end of the input when the value has not changed.
+
+/**
+     * @return {boolean} If a custom validity is set, returns that value.
+     *     Otherwise, returns the result of native validity checks.
+     */
+
+/**
+     * @param {boolean} isValid Sets the validity state of the Text Field.
+     */
+
+/**
+     * @param {boolean} disabled Sets the text-field disabled or enabled.
+     */
+
+/**
+     * @param {string} content Sets the content of the helper text.
+     */
+
+/**
+     * @return {boolean} True if the Text Field input fails in converting the
+     *     user-supplied value.
+     * @private
+     */
+
+/**
+     * @return {boolean} The result of native validity checking
+     *     (ValidityState.valid).
+     */
+
+/**
+     * Styles the component based on the validity state.
+     * @param {boolean} isValid
+     * @private
+     */
+
+/**
+     * Styles the component based on the focused state.
+     * @param {boolean} isFocused
+     * @private
+     */
+
+/**
+     * Styles the component based on the disabled state.
+     * @param {boolean} isDisabled
+     * @private
+     */
+
+/**
+     * @return {!Element|!NativeInputType} The native text input from the
+     * host environment, or a dummy if none exists.
+     * @private
+     */
+
+/** @type {!NativeInputType} */
+
+/**
+ * @extends {MDCComponent<!MDCTextFieldHelperTextFoundation>}
+ * @final
+ */
+
+/**
+     * @return {!MDCTextFieldHelperTextFoundation}
+     */
+
+/** @type {!MDCTextFieldHelperTextAdapter} */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCTextFieldHelperText}
+     */
+
+/**
+ * @extends {MDCComponent<!MDCTextFieldIconFoundation>}
+ * @final
+ */
+
+/**
+     * @return {!MDCTextFieldIconFoundation}
+     */
+
+/** @type {!MDCTextFieldIconAdapter} */
+
+/* evtData */
+
+/* shouldBubble */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCTextFieldIcon}
+     */
+
+/**
+ * Stores result from supportsCssVariables to avoid redundant processing to detect CSS custom variable support.
+ * @private {boolean|undefined}
+ */
+
+/**
+ * Stores result from applyPassive to avoid redundant processing to detect passive event listener support.
+ * @private {boolean|undefined}
+ */
+
+/**
+ * @param {!Window} windowObj
+ * @param {boolean=} forceRefresh
+ * @return {boolean|undefined}
+ */
+
+// See: https://bugs.webkit.org/show_bug.cgi?id=154669
+
+// See: README section on Safari
+
+/**
+ * @param {!Window} windowObj
+ * @return {boolean}
+ */
+
+// Detect versions of Edge with buggy var() support
+
+// See: https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/11495448/
+
+// The bug exists if ::before style ends up propagating to the parent element.
+
+// Additionally, getComputedStyle returns null in iframes with display: "none" in Firefox,
+
+// but Firefox is known to support CSS custom properties correctly.
+
+// See: https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+
+//
+
+/**
+ * Determine whether the current browser supports passive event listeners, and if so, use them.
+ * @param {!Window=} globalObj
+ * @param {boolean=} forceRefresh
+ * @return {boolean|!EventListenerOptions}
+ */
+
+/** @type {!EventListenerOptions} */
+
+/**
+ * @param {!Object} HTMLElementPrototype
+ * @return {string}
+ */
+
+/**
+   * Order is important because we return the first existing method we find.
+   * Do not change the order of the items in the below array.
+   */
+
+/**
+ * @param {!Event} ev
+ * @param {{x: number, y: number}} pageOffset
+ * @param {!ClientRect} clientRect
+ * @return {{x: number, y: number}}
+ */
+
+// Determine touch point relative to the ripple container.
+
+/** @type {!TouchEvent} */
+
+/** @type {!MouseEvent} */
+
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * Adapter for MDC TextField Line Ripple.
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the line ripple into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Adds a class to the line ripple element.
+     * @param {string} className
+     */
+
+/**
+     * Removes a class from the line ripple element.
+     * @param {string} className
+     */
+
+/**
+     * @param {string} className
+     * @return {boolean}
+     */
+
+/**
+     * Sets the style property with propertyName to value on the root element.
+     * @param {string} propertyName
+     * @param {string} value
+     */
+
+/**
+     * Registers an event listener on the line ripple element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Deregisters an event listener on the line ripple element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+ * Adapter for MDC Notched Outline.
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the Notched Outline into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Adds a class to the root element.
+     * @param {string} className
+     */
+
+/**
+     * Removes a class from the root element.
+     * @param {string} className
+     */
+
+/**
+     * Sets the width style property of the notch element.
+     * @param {number} width
+     */
+
+/**
+     * Removes the width style property from the notch element.
+     */
+
+// This should stay in sync with $mdc-notched-outline-padding * 2.
+
+/** @enum {number} */
+
+/**
+ * @extends {MDCFoundation<!MDCFloatingLabelAdapter>}
+ * @final
+ */
+
+/**
+     * {@see MDCFloatingLabelAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCFloatingLabelAdapter}
+     */
+
+/** @type {!MDCFloatingLabelAdapter} */
+
+/**
+     * @param {!MDCFloatingLabelAdapter} adapter
+     */
+
+/**
+     * Styles the label to produce the label shake for errors.
+     * @param {boolean} shouldShake adds shake class if true,
+     * otherwise removes shake class.
+     */
+
+/**
+     * Styles the label to float or dock.
+     * @param {boolean} shouldFloat adds float class if true, otherwise remove
+     * float and shake class to dock label.
+     */
+
+/**
+     * Handles an interaction event on the root element.
+     */
+
+/**
+ * Adapter for MDC Ripple. Provides an interface for managing
+ * - classes
+ * - dom
+ * - CSS variables
+ * - position
+ * - dimensions
+ * - scroll position
+ * - event handlers
+ * - unbounded, active and disabled states
+ *
+ * Additionally, provides type information for the adapter to the Closure
+ * compiler.
+ *
+ * Implement this adapter for your framework of choice to delegate updates to
+ * the component in your framework of choice. See architecture documentation
+ * for more details.
+ * https://github.com/material-components/material-components-web/blob/master/docs/code/architecture.md
+ *
+ * @record
+ */
+
+/** @param {string} className */
+
+/** @param {!EventTarget} target */
+
+/**
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+/**
+     * @param {!Function} handler
+     */
+
+/**
+     * @param {string} varName
+     * @param {?number|string} value
+     */
+
+/** @return {!ClientRect} */
+
+/** @return {{x: number, y: number}} */
+
+/**
+ * @extends {MDCComponent<!MDCLineRippleFoundation>}
+ * @final
+ */
+
+/**
+     * Activates the line ripple
+     */
+
+/**
+     * Deactivates the line ripple
+     */
+
+/**
+     * Sets the transform origin given a user's click location. The `rippleCenter` is the
+     * x-coordinate of the middle of the ripple.
+     * @param {number} xCoordinate
+     */
+
+/**
+     * @return {!MDCLineRippleFoundation}
+     */
+
+/** @type {!MDCLineRippleAdapter} */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCLineRipple}
+     */
+
+/**
+ * @extends {MDCFoundation<!MDCLineRippleAdapter>}
+ * @final
+ */
+
+/**
+     * {@see MDCLineRippleAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCLineRippleAdapter}
+     */
+
+/**
+     * @param {!MDCLineRippleAdapter=} adapter
+     */
+
+/**
+     * Sets the center of the ripple animation to the given X coordinate.
+     * @param {number} xCoordinate
+     */
+
+/**
+     * Handles a transition end event
+     * @param {!Event} evt
+     */
+
+// Wait for the line ripple to be either transparent or opaque
+
+// before emitting the animation end event
+
+/**
+ * @extends {MDCComponent<!MDCNotchedOutlineFoundation>}
+ * @final
+ */
+
+/** @private {Element} */
+
+/**
+     * @param {!Element} root
+     * @return {!MDCNotchedOutline}
+     */
+
+/** @param {...?} args */
+
+/**
+      * Updates classes and styles to open the notch to the specified width.
+      * @param {number} notchWidth The notch width in the outline.
+      */
+
+/**
+     * Updates classes and styles to close the notch.
+     */
+
+/**
+     * @return {!MDCNotchedOutlineFoundation}
+     */
+
+/** @type {!MDCNotchedOutlineAdapter} */
+
+/**
+ * @extends {MDCFoundation<!MDCNotchedOutlineAdapter>}
+ * @final
+ */
+
+/**
+   * Adds the outline notched selector and updates the notch width
+   * calculated based off of notchWidth.
+   * @param {number} notchWidth
+   */
+
+/** @return enum {number} */
+
+/**
+     * {@see MDCNotchedOutlineAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCNotchedOutlineAdapter}
+     */
+
+/**
+     * @param {!MDCNotchedOutlineAdapter} adapter
+     */
+
+/**
+     * Removes notched outline selector to close the notch in the outline.
+     */
+
+/* harmony reexport (module object) */
+
+/**
+ * @extends MDCComponent<!MDCRippleFoundation>
+ */
+
+/** @type {boolean} */
+
+/**
+   * @param {!Element} root
+   * @param {{isUnbounded: (boolean|undefined)}=} options
+   * @return {!MDCRipple}
+   */
+
+/**
+     * Closure Compiler throws an access control error when directly accessing a
+     * protected or private property inside a getter/setter, like unbounded above.
+     * By accessing the protected property inside a method, we solve that problem.
+     * That's why this function exists.
+     * @private
+     */
+
+/**
+     * @return {!MDCRippleFoundation}
+     * @override
+     */
+
+/** @override */
+
+/** @param {boolean} unbounded */
+
+// Only override unbounded behavior if option is explicitly specified
+
+/**
+     * @param {!RippleCapableSurface} instance
+     * @return {!MDCRippleAdapter}
+     */
+
+/**
+ * See Material Design spec for more details on when to use ripples.
+ * https://material.io/guidelines/motion/choreography.html#choreography-creation
+ * @record
+ */
+
+/**
+ * Whether or not the ripple bleeds out of the bounds of the element.
+ * @type {boolean|undefined}
+ */
+
+/**
+ * Whether or not the ripple is attached to a disabled component.
+ * @type {boolean|undefined}
+ */
+
+/**
+ * @typedef {{
+ *   isActivated: (boolean|undefined),
+ *   hasDeactivationUXRun: (boolean|undefined),
+ *   wasActivatedByPointer: (boolean|undefined),
+ *   wasElementMadeActive: (boolean|undefined),
+ *   activationEvent: (!Event|undefined),
+ *   isProgrammatic: (boolean|undefined)
+ * }}
+ */
+
+/** @private {number} */
+
+/** @private {!ClientRect} */
+
+/** @type {!ClientRect} */
+
+/** @private {!ActivationStateType} */
+
+/** @private {function(!Event)} */
+
+/** @private {function(!Event=)} */
+
+/** @private {!Function} */
+
+/** @private {{left: number, top:number}} */
+
+/** @private {!Event|undefined} */
+
+/**
+   * We compute this property so that we are not querying information about the client
+   * until the point in time where the foundation requests it. This prevents scenarios where
+   * client-side feature-detection may happen too early, such as when components are rendered on the server
+   * and then initialized at mount time on the client.
+   * @return {boolean}
+   * @private
+   */
+
+/**
+     * @return {!ActivationStateType}
+     */
+
+// Unbounded ripples need layout logic applied immediately to set coordinates for both shade and ripple
+
+/**
+     * @param {boolean} supportsPressRipple Passed from init to save a redundant function call
+     * @private
+     */
+
+/**
+     * @param {!Event} e
+     * @private
+     */
+
+/** @private */
+
+/**
+     * @param {!Event=} e
+     * @private
+     */
+
+// Avoid reacting to follow-on events fired by touch device after an already-processed user interaction
+
+// Immediately reset activation state, while preserving logic that prevents touch follow-on events
+
+/** @type {!EventTarget} */
+
+// Reset array on next frame after the current event has had a chance to bubble to prevent ancestor ripples
+
+// If space was pressed, try again within an rAF call to detect :active, because different UAs report
+
+// active states inconsistently when they're called within event handling code:
+
+// - https://bugs.chromium.org/p/chromium/issues/detail?id=635971
+
+// - https://bugzilla.mozilla.org/show_bug.cgi?id=1293741
+
+// We try first outside rAF to support Edge, which does not exhibit this problem, but will crash if a CSS
+
+// variable is set within a rAF callback for a submit button interaction (#2241).
+
+// Reset activation state immediately if element was not made active.
+
+/**
+     * @param {!Event=} event Optional event containing position information.
+     */
+
+// Cancel any ongoing activation/deactivation animations
+
+// Force layout in order to re-trigger the animation.
+
+/**
+     * @private
+     * @return {{startPoint: PointType, endPoint: PointType}}
+     */
+
+// Center the element around the start point.
+
+/** @type {!Event} */
+
+// This method is called both when a pointing device is released, and when the activation animation ends.
+
+// The deactivation animation should only run after both of those occur.
+
+// Touch devices may fire additional events for the same interaction within a short time.
+
+// Store the previous event until it's safe to assume that subsequent events are for new interactions.
+
+/**
+     * @private
+     */
+
+// This can happen in scenarios such as when you have a keyup event that blurs the element.
+
+/** @type {!ActivationStateType} */
+
+/**
+     * @param {!ActivationStateType} options
+     * @private
+     */
+
+// Surface diameter is treated differently for unbounded vs. bounded ripples.
+
+// Unbounded ripple diameter is calculated smaller since the surface is expected to already be padded appropriately
+
+// to extend the hitbox, and the ripple is expected to meet the edges of the padded hitbox (which is typically
+
+// square). Bounded ripples, on the other hand, are fully expected to expand beyond the surface's longest diameter
+
+// (calculated based on the diagonal plus a constant padding), and are clipped at the surface's border via
+
+// `overflow: hidden`.
+
+// Ripple is sized as a fraction of the largest dimension of the surface, then scales up using a CSS scale transform
+
+/**
+ * @typedef {{
+ *   activate: (string|undefined),
+ *   deactivate: (string|undefined),
+ *   focus: (string|undefined),
+ *   blur: (string|undefined)
+ * }}
+ */
+
+// Ripple is a special case where the "root" component is really a "mixin" of sorts,
+
+// given that it's an 'upgrade' to an existing component. That being said it is the root
+
+// CSS class that all other CSS classes derive from.
+
+// Corresponds to $mdc-ripple-translate-duration (i.e. activation animation duration)
+
+// Corresponds to $mdc-ripple-fade-out-duration (i.e. deactivation animation duration)
+
+/**
+ * @extends {MDCFoundation<!MDCTextFieldHelperTextAdapter>}
+ * @final
+ */
+
+/**
+   * Sets the content of the helper text field.
+   * @param {string} content
+   */
+
+/**
+     * {@see MDCTextFieldHelperTextAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCTextFieldHelperTextAdapter}
+     */
+
+/**
+     * @param {!MDCTextFieldHelperTextAdapter} adapter
+     */
+
+/** @param {boolean} isPersistent Sets the persistency of the helper text. */
+
+/**
+     * @param {boolean} isValidation True to make the helper text act as an
+     *   error validation message.
+     */
+
+/** Makes the helper text visible to the screen reader. */
+
+/**
+     * Sets the validity of the helper text based on the input validity.
+     * @param {boolean} inputIsValid
+     */
+
+/**
+     * Hides the help text from screen readers.
+     * @private
+     */
+
+/**
+ * @extends {MDCFoundation<!MDCTextFieldIconAdapter>}
+ * @final
+ */
+
+/** @private {string?} */
+
+/**
+     * {@see MDCTextFieldIconAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCTextFieldIconAdapter}
+     */
+
+/**
+     * @param {!MDCTextFieldIconAdapter} adapter
+     */
+
+/** @param {boolean} disabled */
+
+/** @param {string} label */
+
+/** @param {string} content */
+
+/**
+     * Handles an interaction event
+     * @param {!Event} evt
+     */
+
+/* unused harmony export MDCTextFieldAdapter */
+
+/* unused harmony export NativeInputType */
+
+/* unused harmony export FoundationMapType */
+
+/**
+ * @typedef {{
+ *   value: string,
+ *   disabled: boolean,
+ *   badInput: boolean,
+ *   validity: {
+ *     badInput: boolean,
+ *     valid: boolean,
+ *   },
+ * }}
+ */
+
+/**
+     * Adds a class to the root Element.
+     * @param {string} className
+     */
+
+/**
+     * Removes a class from the root Element.
+     * @param {string} className
+     */
+
+/**
+     * Returns true if the root element contains the given class name.
+     * @param {string} className
+     * @return {boolean}
+     */
+
+/**
+     * Registers an event handler on the root element for a given event.
+     * @param {string} type
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Deregisters an event handler on the root element for a given event.
+     * @param {string} type
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Registers an event listener on the native input element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Deregisters an event listener on the native input element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Registers a validation attribute change listener on the input element.
+     * Handler accepts list of attribute names.
+     * @param {function(!Array<string>): undefined} handler
+     * @return {!MutationObserver}
+     */
+
+/**
+     * Disconnects a validation attribute observer on the input element.
+     * @param {!MutationObserver} observer
+     */
+
+/**
+     * Returns an object representing the native text input element, with a
+     * similar API shape. The object returned should include the value, disabled
+     * and badInput properties, as well as the checkValidity() function. We never
+     * alter the value within our code, however we do update the disabled
+     * property, so if you choose to duck-type the return value for this method
+     * in your implementation it's important to keep this in mind. Also note that
+     * this method can return null, which the foundation will handle gracefully.
+     * @return {?Element|?NativeInputType}
+     */
+
+/**
+     * Returns true if the textfield is focused.
+     * We achieve this via `document.activeElement === this.root_`.
+     * @return {boolean}
+     */
+
+/**
+     * Activates the line ripple.
+     */
+
+/**
+     * Deactivates the line ripple.
+     */
+
+/**
+     * Sets the transform origin of the line ripple.
+     * @param {number} normalizedX
+     */
+
+/**
+     * Only implement if label exists.
+     * Shakes label if shouldShake is true.
+     * @param {boolean} shouldShake
+     */
+
+/**
+     * Only implement if label exists.
+     * Floats the label above the input element if shouldFloat is true.
+     * @param {boolean} shouldFloat
+     */
+
+/**
+     * Returns true if label element exists, false if it doesn't.
+     * @return {boolean}
+     */
+
+/**
+     * Only implement if label exists.
+     * Returns width of label in pixels.
+     * @return {number}
+     */
+
+/**
+     * Returns true if outline element exists, false if it doesn't.
+     * @return {boolean}
+     */
+
+/**
+     * Only implement if outline element exists.
+     * @param {number} labelWidth
+     */
+
+/**
+     * Only implement if outline element exists.
+     * Closes notch in outline element.
+     */
+
+/**
+ * @typedef {{
+ *   helperText: (!MDCTextFieldHelperTextFoundation|undefined),
+ *   leadingIcon: (!MDCTextFieldIconFoundation|undefined),
+ *   trailingIcon: (!MDCTextFieldIconFoundation|undefined),
+ * }}
+ */
+
+/**
+ * Adapter for MDC Text Field Helper Text.
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the TextField helper text into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Adds a class to the helper text element.
+     * @param {string} className
+     */
+
+/**
+     * Removes a class from the helper text element.
+     * @param {string} className
+     */
+
+/**
+     * Returns whether or not the helper text element contains the given class.
+     * @param {string} className
+     * @return {boolean}
+     */
+
+/**
+     * Sets an attribute with a given value on the helper text element.
+     * @param {string} attr
+     * @param {string} value
+     */
+
+/**
+     * Removes an attribute from the helper text element.
+     * @param {string} attr
+     */
+
+/**
+     * Sets the text content for the helper text element.
+     * @param {string} content
+     */
+
+/**
+ * Adapter for MDC Text Field Icon.
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the text field icon into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Gets the value of an attribute on the icon element.
+     * @param {string} attr
+     * @return {string}
+     */
+
+/**
+     * Sets an attribute on the icon element.
+     * @param {string} attr
+     * @param {string} value
+     */
+
+/**
+     * Removes an attribute from the icon element.
+     * @param {string} attr
+     */
+
+/**
+     * Sets the text content of the icon element.
+     * @param {string} content
+     */
+
+/**
+     * Registers an event listener on the icon element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Deregisters an event listener on the icon element for a given event.
+     * @param {string} evtType
+     * @param {function(!Event): undefined} handler
+     */
+
+/**
+     * Emits a custom event "MDCTextField:icon" denoting a user has clicked the icon.
+     */
+
+/* 1 */
+
+/**
+ * Adapter for MDC List. Provides an interface for managing focus.
+ *
+ * Additionally, provides type information for the adapter to the Closure
+ * compiler.
+ *
+ * Implement this adapter for your framework of choice to delegate updates to
+ * the component in your framework of choice. See architecture documentation
+ * for more details.
+ * https://github.com/material-components/material-components-web/blob/master/docs/code/architecture.md
+ *
+ * @record
+ */
+
+/** @return {number} */
+
+/**
+     * @return {number} */
+
+/**
+     * @param {number} index
+     * @param {string} attribute
+     * @param {string} value
+     */
+
+/**
+     * @param {number} index
+     * @param {string} attribute
+     */
+
+/**
+     * @param {number} index
+     * @param {string} className
+     */
+
+/**
+     * Focuses list item at the index specified.
+     * @param {number} index
+     */
+
+/**
+     * Sets the tabindex to the value specified for all button/a element children of
+     * the list item at the index specified.
+     * @param {number} listItemIndex
+     * @param {number} tabIndexValue
+     */
+
+/**
+     * If the given element has an href, follows the link.
+     * @param {!Element} ele
+     */
+
+/**
+     * @param {number} index
+     * @return {boolean} Returns true if radio button is present at given list item index.
+     */
+
+/**
+     * @param {number} index
+     * @return {boolean} Returns true if checkbox is present at given list item index.
+     */
+
+/**
+     * @param {number} index
+     * @return {boolean} Returns true if checkbox inside a list item is checked.
+     */
+
+/**
+     * Sets the checked status of checkbox or radio at given list item index.
+     * @param {number} index
+     * @param {boolean} isChecked
+     */
+
+/**
+     * @return {boolean} Returns true when the current focused element is inside list root.
+     */
+
+/**
+ * @extends {MDCComponent<!MDCDismissibleDrawerFoundation>}
+ * @final
+ */
+
+/** @private {!Element} */
+
+/** @private {!FocusTrapInstance} */
+
+/** @private {?Function} */
+
+/** @private {?MDCList} */
+
+/**
+   * @param {!Element} root
+   * @return {!MDCDrawer}
+   */
+
+/** @type {!Element} */
+
+/** @type {!MDCModalDrawerFoundation} */
+
+/** @type {!Function} */
+
+// Ensure drawer is closed to hide scrim and release focus
+
+/** @type {!MDCDrawerAdapter} */
+
+/**
+     * Returns true if drawer is in the open position.
+     * @return {boolean}
+     */
+
+/**
+     * Toggles the drawer open and closed.
+     * @param {boolean} isOpen
+     */
+
+/**
+ * @extends {MDCDismissibleDrawerFoundation}
+ */
+
+/**
+     * Called when drawer finishes open animation.
+     * @override
+     */
+
+/**
+     * Called when drawer finishes close animation.
+     * @override
+     */
+
+/**
+     * Handles click event on scrim.
+     */
+
+/**
+ * @param {!Element} surfaceEl
+ * @param {!Function} focusTrapFactory
+ * @return {!FocusTrapInstance}
+ */
+
+// Navigation drawer handles focusing on active nav item.
+
+// Navigation drawer handles ESC.
+
+// This won't account for the edge case where you have radio groups with the same
+
+// in separate forms on the same page.
+
+// An element is "untouchable" if *it or one of its ancestors* has
+
+// `visibility: hidden` or `display: none`.
+
+// Browsers do not return `tabIndex` correctly for contentEditable nodes;
+
+// so if they don't have a tabindex attribute specifically set, assume it's 0.
+
+// Array.prototype.find not available in IE.
+
+// Node cache must be refreshed on every check, in case
+
+// the content of the element has changed. The cache contains tuples
+
+// mapping nodes to their boolean result.
+
+// getComputedStyle accurately reflects `visibility: hidden` of ancestors
+
+// but not `display: none`, so we need to recursively check parents.
+
+// Search for a cached result.
+
+/* unused harmony export Index */
+
+// eslint-disable-line no-unused-vars
+
+/** @private {!Index} */
+
+/**
+     * {@see MDCListAdapter} for typing information on parameters and return
+     * types.
+     * @return {!MDCListAdapter}
+     */
+
+/** @type {!MDCListAdapter} */
+
+/**
+     * @param {!MDCListAdapter=} adapter
+     */
+
+/**
+     * Sets the private wrapFocus_ variable.
+     * @param {boolean} value
+     */
+
+/**
+     * Sets the isVertical_ private variable.
+     * @param {boolean} value
+     */
+
+/**
+     * Sets the isSingleSelectionList_ private variable.
+     * @param {boolean} value
+     */
+
+/**
+     * Sets the useActivatedClass_ private variable.
+     * @param {boolean} useActivated
+     */
+
+/** @return {!Index} */
+
+/** @param {!Index} index */
+
+/** @type {!Array<number>} */
+
+/** @type {number} */
+
+/**
+     * Focus in handler for the list items.
+     * @param evt
+     * @param {number} listItemIndex
+     */
+
+/**
+     * Focus out handler for the list items.
+     * @param {Event} evt
+     * @param {number} listItemIndex
+     */
+
+/**
+       * Between Focusout & Focusin some browsers do not have focus on any element. Setting a delay to wait till the focus
+       * is moved to next element.
+       */
+
+/**
+     * Key handler for the list.
+     * @param {Event} evt
+     * @param {boolean} isRootListItem
+     * @param {number} listItemIndex
+     */
+
+// Explicitly activate links, since we're preventing default on Enter, and Space doesn't activate them.
+
+/**
+     * Click handler for the list.
+     * @param {number} index
+     * @param {boolean} toggleCheckbox
+     */
+
+/**
+     * Ensures that preventDefault is only called if the containing element doesn't
+     * consume the event, and it will cause an unintended scroll.
+     * @param {Event} evt
+     * @private
+     */
+
+/**
+     * Focuses the next element on the list.
+     * @param {number} index
+     * @return {number}
+     */
+
+// Return early because last item is already focused.
+
+/**
+     * Focuses the previous element on the list.
+     * @param {number} index
+     * @return {number}
+     */
+
+// Return early because first item is already focused.
+
+/**
+     * @param {number} index
+     * @private
+     */
+
+/**
+     * Toggles radio at give index. Radio doesn't change the checked state if it is already checked.
+     * @param {number} index
+     * @private
+     */
+
+/**
+     * @param {!Array<number>} index
+     * @private
+     */
+
+// If no list item was selected set first list item's tabindex to -1.
+
+// Generally, tabindex is set to 0 on first list item of list that has no preselected items.
+
+/**
+     * @return {boolean} Return true if it is single selectin list, checkbox list or radio list.
+     * @private
+     */
+
+/**
+     * @param {!Index} index
+     * @return {boolean}
+     * @private
+     */
+
+/**
+     * @param {number} index
+     * @return {boolean}
+     * @private
+     */
+
+/**
+     * @param {number} index
+     * @param {boolean=} toggleCheckbox
+     * @private
+     */
+
+/**
+     * @param {number} index
+     * @param {boolean} toggleCheckbox
+     * @private
+     */
+
+// If none of the checkbox items are selected and selectedIndex is not initialized then provide a default value.
+
+/**
+ * @extends MDCComponent<!MDCListFoundation>
+ */
+
+/**
+   * @param {!Element} root
+   * @return {!MDCList}
+   */
+
+// List items need to have at least tabindex=-1 to be focusable.
+
+// Child button/a elements are not tabbable until the list item is focused.
+
+/**
+     * Used to figure out which list item this event is targetting. Or returns -1 if
+     * there is no list item
+     * @param {Event} evt
+     * @private
+     */
+
+// Find the first ancestor that is a list item or the list.
+
+/** @type {HTMLElement} */
+
+// Get the index of the element if it is a list item.
+
+/**
+     * Used to figure out which element was clicked before sending the event to the foundation.
+     * @param {Event} evt
+     * @private
+     */
+
+/**
+     * Used to figure out which element was focused when keydown event occurred before sending the event to the
+     * foundation.
+     * @param {Event} evt
+     * @private
+     */
+
+// Toggle the checkbox only if it's not the target of the event, or the checkbox will have 2 change events.
+
+/**
+     * Initialize selectedIndex value based on pre-selected checkbox list items, single selection or radio.
+     */
+
+/** @param {boolean} value */
+
+/** @return {!MDCListFoundation} */
+
+/** @return Array<!Element>*/
+
+/** @param {boolean} isSingleSelectionList */
+
+/**
+ * Adapter for MDC Drawer
+ *
+ * Defines the shape of the adapter expected by the foundation. Implement this
+ * adapter to integrate the Drawer into your framework. See
+ * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
+ * for more information.
+ *
+ * @record
+ */
+
+/**
+     * Returns true if the root Element contains the given class.
+     * @param {string} className
+     * @return {boolean}
+     */
+
+/**
+     * @param {!Element} element target element to verify class name
+     * @param {string} className class name
+     */
+
+/**
+     * Saves the focus of currently active element.
+     */
+
+/**
+     * Restores focus to element previously saved with 'saveFocus'.
+     */
+
+/**
+     * Focuses the active / selected navigation item.
+     */
+
+/**
+     * Emits a custom event "MDCDrawer:closed" denoting the drawer has closed.
+     */
+
+/**
+     * Emits a custom event "MDCDrawer:opened" denoting the drawer has opened.
+     */
+
+/**
+     * Traps focus on root element and focuses the active navigation element.
+     */
+
+/**
+     * Releases focus trap from root element which was set by `trapFocus`
+     * and restores focus to where it was prior to calling `trapFocus`.
+     */
+
+/**
+ * @extends {MDCFoundation<!MDCDrawerAdapter>}
+ */
+
+/**
+     * Function to open the drawer.
+     */
+
+// Wait a frame once display is no longer "none", to establish basis for animation
+
+/**
+     * Function to close the drawer.
+     */
+
+/**
+     * Extension point for when drawer finishes open animation.
+     * @protected
+     */
+
+/**
+     * Extension point for when drawer finishes close animation.
+     * @protected
+     */
+
+/**
+     * Returns true if drawer is in open state.
+     * @return {boolean}
+     */
+
+/**
+     * Returns true if drawer is animating open.
+     * @return {boolean}
+     */
+
+/**
+     * Returns true if drawer is animating closed.
+     * @return {boolean}
+     */
+
+/**
+     * Keydown handler to close drawer when key is escape.
+     * @param evt
+     */
+
+/**
+     * Handles a transition end event on the root element.
+     * @param {!Event} evt
+     */
+
+// In Edge, transitionend on ripple pseudo-elements yields a target without classList, so check for Element first.
+
+/**
+     * Runs the given logic on the next animation frame, using setTimeout to factor in Firefox reflow behavior.
+     * @param {Function} callback
+     * @private
+     */
+
+// move this existing trap to the front of the queue
+
+// There can be only one listening focus trap at a time
+
+// Delay ensures that the focused element doesn't capture the event
+
+// that caused the focus trap activation.
+
+// This needs to be done on mousedown and touchstart instead of click
+
+// so that it precedes the focus event.
+
+// In case focus escapes the trap for some strange reason, pull it back in.
+
+// In Firefox when you Tab out of an iframe the Document is briefly focused.
+
+// Hijack Tab events on the first and last focusable nodes of the trap,
+
+// in order to prevent focus from escaping. If it escapes for even a
+
+// moment it can end up scrolling the page and causing confusion so we
+
+// kind of need to capture the action at the keydown phase.
+
+/**
+ * @fileoverview A "ponyfill" is a polyfill that doesn't modify the global prototype chain.
+ * This makes ponyfills safer than traditional polyfills, especially for libraries like MDC.
+ */
+
+/**
+ * @param {!Element} element
+ * @param {string} selector
+ * @return {?Element}
+ */
+
+/**
+ * @param {!Element} element
+ * @param {string} selector
+ * @return {boolean}
+ */
+
+/* 2 */
+
+/*!
+ * 
+ *   typed.js - A JavaScript Typing Animation Library
+ *   Author: Matt Boldt <me@mattboldt.com>
+ *   Version: v2.0.9
+ *   Url: https://github.com/mattboldt/typed.js
+ *   License(s): MIT
+ * 
+ */
+
+// Initialize it up
+
+// All systems go!
+
+/**
+	   * Toggle start() and stop() of the Typed instance
+	   * @public
+	   */
+
+/**
+	     * Stop typing / backspacing and enable cursor blinking
+	     * @public
+	     */
+
+/**
+	     * Start typing / backspacing after being stopped
+	     * @public
+	     */
+
+/**
+	     * Destroy this instance of Typed
+	     * @public
+	     */
+
+/**
+	     * Reset Typed and optionally restarts
+	     * @param {boolean} restart
+	     * @public
+	     */
+
+/**
+	     * Begins the typing animation
+	     * @private
+	     */
+
+// Check if there is some text in the element, if yes start by backspacing the default message
+
+// Start typing
+
+/**
+	     * Called for each character typed
+	     * @param {string} curString the current string in the strings array
+	     * @param {number} curStrPos the current position in the curString
+	     * @private
+	     */
+
+// contain typing function in a timeout humanize'd delay
+
+// skip over any HTML chars
+
+// check for an escape character before a pause value
+
+// format: \^\d+ .. eg: ^1000 .. should be able to print the ^ too using ^^
+
+// single ^ are removed from string
+
+// skip at least 1
+
+// strip out the escape character and pause value so they're not printed
+
+// check for skip characters formatted as
+
+// "this is a `string to print NOW` ..."
+
+// strip out the escape characters and append all the string in between
+
+// timeout for any pause after a character
+
+// Accounts for blinking while paused
+
+// We're done with this sentence!
+
+// end of character pause
+
+/**
+	     * Continue to the next string & begin typing
+	     * @param {string} curString the current string in the strings array
+	     * @param {number} curStrPos the current position in the curString
+	     * @private
+	     */
+
+// call before functions if applicable
+
+// start typing each new char into existing string
+
+// curString: arg, this.el.html: original text inside element
+
+// loop the function
+
+/**
+	     * We're done typing all strings
+	     * @param {string} curString the current string in the strings array
+	     * @param {number} curStrPos the current position in the curString
+	     * @private
+	     */
+
+// fires callback function
+
+// is this the final string
+
+// callback that occurs on the last typed string
+
+/**
+	     * Backspaces 1 character at a time
+	     * @param {string} curString the current string in the strings array
+	     * @param {number} curStrPos the current position in the curString
+	     * @private
+	     */
+
+// replace text with base text + typed characters
+
+// if smartBack is enabled
+
+// the remaining part of the current string is equal of the same part of the new string
+
+// if the number (id of character in current string) is
+
+// less than the stop number, keep going
+
+// subtract characters one by one
+
+// if the stop number has been reached, increase
+
+// array position to next string
+
+// When looping, begin at the beginning after backspace complete
+
+// humanized value for typing
+
+/**
+	     * Full animation is complete
+	     * @private
+	     */
+
+/**
+	     * Has the typing been stopped
+	     * @param {string} curString the current string in the strings array
+	     * @param {number} curStrPos the current position in the curString
+	     * @param {boolean} isTyping
+	     * @private
+	     */
+
+/**
+	     * Toggle the blinking cursor
+	     * @param {boolean} isBlinking
+	     * @private
+	     */
+
+// if in paused state, don't toggle blinking a 2nd time
+
+/**
+	     * Speed in MS to type
+	     * @param {number} speed
+	     * @private
+	     */
+
+/**
+	     * Shuffle the sequence of the strings array
+	     * @private
+	     */
+
+/**
+	     * Adds a CSS class to fade out current string
+	     * @private
+	     */
+
+// Resets current string if end of loop reached
+
+/**
+	     * Replaces current text in the HTML element
+	     * depending on element type
+	     * @param {string} str
+	     * @private
+	     */
+
+/**
+	     * If using input elements, bind focus in order to
+	     * start and stop the animation
+	     * @private
+	     */
+
+/**
+	     * On init, insert the cursor element
+	     * @private
+	     */
+
+/**
+	     * Load up defaults & options on the Typed instance
+	     * @param {Typed} self instance of Typed
+	     * @param {object} options options object
+	     * @param {string} elementId HTML element ID _OR_ instance of HTML element
+	     * @private
+	     */
+
+// chosen element to manipulate text
+
+// attribute to type into
+
+// show cursor
+
+// custom cursor
+
+// Is the cursor blinking
+
+// text content of element
+
+// html or plain text
+
+// typing speed
+
+// add a delay before typing starts
+
+// backspacing speed
+
+// only backspace what doesn't match the previous string
+
+// amount of time to wait before backspacing
+
+// Fade out instead of backspace
+
+// variable to check whether typing is currently paused
+
+// input strings of text
+
+// div containing strings
+
+// character number position of current string
+
+// Set the order in which the strings are typed
+
+// current array position
+
+// index of string to stop backspacing on
+
+// Looping logic
+
+// shuffle the strings
+
+// the order of strings
+
+// When the typing is complete (when not looped)
+
+// If there is some text in the element
+
+/**
+	 * Defaults & options
+	 * @returns {object} Typed defaults & options
+	 * @public
+	 */
+
+/**
+	   * @property {array} strings strings to be typed
+	   * @property {string} stringsElement ID of element containing string children
+	   */
+
+/**
+	   * @property {number} typeSpeed type speed in milliseconds
+	   */
+
+/**
+	   * @property {number} startDelay time before typing starts in milliseconds
+	   */
+
+/**
+	   * @property {number} backSpeed backspacing speed in milliseconds
+	   */
+
+/**
+	   * @property {boolean} smartBackspace only backspace what doesn't match the previous string
+	   */
+
+/**
+	   * @property {boolean} shuffle shuffle the strings
+	   */
+
+/**
+	   * @property {number} backDelay time before backspacing in milliseconds
+	   */
+
+/**
+	   * @property {boolean} fadeOut Fade out instead of backspace
+	   * @property {string} fadeOutClass css class for fade animation
+	   * @property {boolean} fadeOutDelay Fade out delay in milliseconds
+	   */
+
+/**
+	   * @property {boolean} loop loop strings
+	   * @property {number} loopCount amount of loops
+	   */
+
+/**
+	   * @property {boolean} showCursor show cursor
+	   * @property {string} cursorChar character for cursor
+	   * @property {boolean} autoInsertCss insert CSS for cursor and fadeOut into HTML <head>
+	   */
+
+/**
+	   * @property {string} attr attribute for typing
+	   * Ex: input placeholder, value, or just HTML text
+	   */
+
+/**
+	   * @property {boolean} bindInputFocusEvents bind to focus and blur if el is text input
+	   */
+
+/**
+	   * @property {string} contentType 'html' or 'null' for plaintext
+	   */
+
+/**
+	   * All typing is complete
+	   * @param {Typed} self
+	   */
+
+/**
+	   * Before each string is typed
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * After each string is typed
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * During looping, after last string is typed
+	   * @param {Typed} self
+	   */
+
+/**
+	   * Typing has been stopped
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * Typing has been started after being stopped
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * After reset
+	   * @param {Typed} self
+	   */
+
+/**
+	   * After stop
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * After start
+	   * @param {number} arrayPos
+	   * @param {Typed} self
+	   */
+
+/**
+	   * After destroy
+	   * @param {Typed} self
+	   */
+
+/* 3 */
+
+/**
+	 * TODO: These methods can probably be combined somehow
+	 * Parse HTML tags & HTML Characters
+	 */
+
+/**
+	     * Type HTML tags & HTML Characters
+	     * @param {string} curString Current string
+	     * @param {number} curStrPos Position in current string
+	     * @param {Typed} self instance of Typed
+	     * @returns {number} a new string position
+	     * @private
+	     */
+
+/**
+	     * Backspace HTML tags and HTML Characters
+	     * @param {string} curString Current string
+	     * @param {number} curStrPos Position in current string
+	     * @param {Typed} self instance of Typed
+	     * @returns {number} a new string position
+	     * @private
+	     */
+
+/* 4 */
+
+/* 5 */
+
+// extracted by mini-css-extract-plugin
+
+/* 6 */
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+// Test for IE <= 9 as proposed by Browserhacks
+
+// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+
+// Tests for existence of standard globals is to allow style-loader
+
+// to operate correctly into non-standard environments
+
+// @see https://github.com/webpack-contrib/style-loader/issues/177
+
+// If passing function in options, then use it for resolve "head" element.
+
+// Useful for Shadow Root style i.e
+
+// {
+
+//   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+
+// }
+
+// Special case to return head of iframe instead of iframe itself
+
+// This will throw an exception if access to iframe is blocked
+
+// due to cross-origin restrictions
+
+// If a transform function was defined, run it on the css
+
+// If the transform function returns a falsy value, don't add this css.
+
+// This allows conditional loading of css
+
+// noop
+
+// If transform returns a value, use that instead of the original css.
+
+// This allows running runtime transformations on the css.
+
+// http://stackoverflow.com/a/26603875
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+
+// tags it will allow on a page
+
+// By default, add <style> tags to the <head> element
+
+// By default, add <style> tags to the bottom of the target
+
+/* 7 */
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+// get current location
+
+// blank or null?
+
+// send back the fixed css
+
+// strip quotes (if they exist)
+
+// already a full url? no change
+
+//TODO: should we add protocol?
+
+// convert the url to a full url
+
+/* 8 */
+
+/*#__PURE__*/

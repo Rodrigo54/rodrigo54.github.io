@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "rodrigoalves.me",
+  "title": "Site Rodrigo Alves",
+  "version": "3.0.1",
+  "homepage": "https://rodrigoalves.me/",
+  "scripts": {
+    "build:static": "rimraf static/ public/ && webpack -p --mode production",
+    "start": "webpack --watch --mode development"
+  },
+  "license": "MIT",
+  "author": "Rodrigo Alves Mesquita",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rodrigo54/rodrigoalves.me.git"
+  },
+  "dependencies": {
+    "@material/button": "^4.0.0",
+    "@material/drawer": "^4.0.0",
+    "@material/fab": "^4.0.0",
+    "@material/icon-button": "^4.0.0",
+    "@material/ripple": "^4.0.0",
+    "@material/textfield": "^4.0.0",
+    "normalize.css": "^8.0.1",
+    "typed.js": "^2.0.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "rimraf": "^3.0.0",
+    "sass": "^1.24.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "workbox-webpack-plugin": "^4.3.1"
+  }
+}

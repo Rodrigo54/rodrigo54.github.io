@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "allowJs": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "paths": {
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+    },
+  },
+  "exclude": ["./node_modules"]
+}
