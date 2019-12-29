@@ -1,4 +1,5 @@
 import Layout from '@components/layout/layout.component';
+import Pagination from '@components/pagination/pagination.component';
 import PostItem from '@components/post-item/post-item.component';
 import SEO from '@components/seo';
 import { graphql } from 'gatsby';
@@ -33,7 +34,12 @@ export const query = graphql`
   }
 `;
 
-export default function BlogList({ data }) {
+export default function BlogList({ pageContext, data }) {
+  const { currentPage, numPages } = pageContext;
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const prevPage = currentPage - 1 === 1 ? '/blog/' : `/blog/page/${currentPage - 1}`;
+  const nextPage = `/blog/page/${currentPage + 1}`;
   const postList = data.allMarkdownRemark.edges.map(({node}) => ({
     ...node.frontmatter,
     timeToRead: node.timeToRead,
@@ -41,7 +47,7 @@ export default function BlogList({ data }) {
   }));
   return (
     <Layout>
-      <SEO title='Home' />
+      <SEO title='Blog' />
       {postList.map((post, index) => (
         <PostItem
           key={index}
@@ -53,6 +59,14 @@ export default function BlogList({ data }) {
           description={post.description}
         />
       ))}
+      <Pagination
+        isFirst={isFirst}
+        isLast={isLast}
+        currentPage={currentPage}
+        numPages={numPages}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </Layout>
   );
 }

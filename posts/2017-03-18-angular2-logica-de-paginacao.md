@@ -14,6 +14,8 @@ Este é um exemplo de como implementar uma paginação em Angular 2 e TypeScript
 
 ## Lógica de paginação do Google
 
+![Desert](/assets/img/post-bg-07.jpg)
+
 A lógica na paginação do Google é a seguinte:
 
 Há 10 links de página mostrados a qualquer momento (por exemplo, 1 2 3 4 5 6 7 8 9 10) a menos que haja menos de 10 páginas totais
@@ -250,7 +252,7 @@ Foi usado o projeto angular 2 quickstart como uma base para o aplicativo, ele é
 
 Para facilitar a reutilização da lógica de paginação em diferentes componentes ou módulos Angular 2, colocamos a lógica de paginação em um serviço angular 2.
 
-{{< highlight typescript >}}
+```typescript
 import * as _ from 'underscore';
 
 export class PagerService {
@@ -299,13 +301,13 @@ let totalPages = Math.ceil(totalItems / pageSize);
     }
 
 }
-{{< /highlight >}}
+```
 
 ## AppComponent que usa o serviço Pager
 
 Um exemplo de componente angular 2 que usa o Pager Service acima para paginar uma lista de itens fictícios que são extraídos de um arquivo json no servidor.
 
-{{< highlight typescript >}}
+```typescript
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -359,13 +361,13 @@ constructor(private http: Http, private pagerService: PagerService) { }
     }
 
 }
-{{< /highlight >}}
+```
 
 # HTML Template com itens paginados e navegação
 
 Um exemplo de modelo angular 2 que mostra uma lista de itens paginados e os links de paginação para navegar entre páginas.
 
-{{< highlight html >}}
+```html
 
 <div>
     <div class="container">
@@ -396,7 +398,7 @@ Um exemplo de modelo angular 2 que mostra uma lista de itens paginados e os link
         </div>
     </div>
 </div>
-{{< /highlight >}}
+```
 
 O projeto está disponível no GitHub em [github.com/cornflourblue/angular2-pagination-example](https://github.com/cornflourblue/angular2-pagination-example)
 

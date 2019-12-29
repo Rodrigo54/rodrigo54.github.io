@@ -11,6 +11,7 @@ export default function IndexPage() {
         allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }){
           edges{
             node {
+              timeToRead
               frontmatter{
                 title
                 author
@@ -21,7 +22,6 @@ export default function IndexPage() {
                   url
                 }
               }
-              timeToRead
               fields {
                 slug
               }

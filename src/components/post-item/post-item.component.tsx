@@ -15,7 +15,7 @@ export default function PostItem({
 }) {
   return (
     <S.PostItemLink
-      to={`blog/${slug}`}
+      to={`blog${slug}`}
       cover='true'
       direction='right'
       bg={getThemeColor()}

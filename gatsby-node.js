@@ -26,6 +26,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({
       node,
       getNode,
+      basePath: "pages",
     })
 
     // Creates new query'able field with name of 'slug'
@@ -38,24 +39,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 // To create the posts pages
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return graphql(`
+  const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }){
         edges {
           node {
-            html
-            timeToRead
+            fields {
+              slug
+            }
+          }
+          next {
             frontmatter {
               title
-              author
-              description
-              date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-              music {
-                title
-                url
-              }
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
+            frontmatter {
+              title
             }
             fields {
               slug
@@ -64,37 +69,42 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    const posts = result.data.allMarkdownRemark.edges
+  `);
+  // Handle errors
+  if (result.errors) {
+    throw result.errors;
+  }
+  const posts = result.data.allMarkdownRemark.edges
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`);
 
-    posts.forEach(({ node }) => {
-      createPage({
-        path: `/blog${node.fields.slug}`,
-        component: path.resolve(`./src/templates/blog-post.tsx`),
-        context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-          html: node.html,
-          frontmatter: node.frontmatter,
-        },
-      })
+  for (const { node, next, previous } of posts) {
+    const path = `/blog${node.fields.slug}`;
+    createPage({
+      path,
+      component: blogPostTemplate,
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
+        previousPost: next,
+        nextPost: previous,
+      },
     })
+  }
 
-    const postsPerPage = 3
-    const numPages = Math.ceil(posts.length / postsPerPage)
+  const postsPerPage = 3
+  const numPages = Math.ceil(posts.length / postsPerPage)
 
-    Array.from({ length: numPages }).forEach((_, index) => {
-      createPage({
-        path: index === 0 ? `/blog/` : `/blog/page/${index + 1}`,
-        component: path.resolve(`./src/templates/blog-list.tsx`),
-        context: {
-          limit: postsPerPage,
-          skip: index * postsPerPage,
-          numPages,
-          currentPage: index + 1,
-        },
-      })
+  Array.from({ length: numPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? `/blog/` : `/blog/page/${index + 1}`,
+      component: path.resolve(`./src/templates/blog-list.tsx`),
+      context: {
+        limit: postsPerPage,
+        skip: index * postsPerPage,
+        numPages,
+        currentPage: index + 1,
+      },
     })
   })
 }

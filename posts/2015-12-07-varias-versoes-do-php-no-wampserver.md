@@ -69,7 +69,7 @@ a variável de ambiente do Windows mude conforme mudamos a versão do php no wam
 
 Para isso vamos precisar cria um arquivo **php.bat** para que dinamicamente mude a variável de ambiente "PATH" após troca da versão do PHP no wampserver. O arquivo deve se parecer com esse abaixo.
 
-{{< gist hieblmedia d83b0ace4861a51344ca >}}
+`gist:hieblmedia/d83b0ace4861a51344ca`
 
 Crie o arquivo **php.bat** em `path\para-o\wamp\bin\php`
 
