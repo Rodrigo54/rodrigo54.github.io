@@ -55,7 +55,6 @@ export const onClientEntry = () => {
         localStorage.setItem('config', JSON.stringify(newConfig));
       } catch (err) {}
     }
-    console.log(preferredConfig);
     setConfig(preferredConfig);
   })();
 }
