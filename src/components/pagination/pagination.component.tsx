@@ -1,6 +1,8 @@
-import { Link } from 'gatsby';
+import getThemeColor from '@utils/getThemeColor';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import * as S from './pagination.style';
 
 export default function Pagination({
@@ -10,23 +12,57 @@ export default function Pagination({
   numPages,
   prevPage,
   nextPage,
+  children,
 }) {
+
+  let content;
+
+  if (children) {
+    content = children;
+  } else {
+    content = (
+      <>
+        {!isFirst && (
+          <AniLink
+            to={prevPage}
+            cover={true}
+            direction='left'
+            bg={getThemeColor()}
+            duration={0.6}
+          >
+            ← Página Anterior
+          </AniLink>
+        )}
+        <p>
+          {currentPage} de {numPages}
+        </p>
+        {!isLast && (
+          <AniLink
+            to={nextPage}
+            cover={true}
+            direction='right'
+            bg={getThemeColor()}
+            duration={0.6}
+          >
+            Proxima Página →
+          </AniLink>
+        )}
+      </>
+    );
+  }
   return (
     <S.PaginationWrapper>
-      {!isFirst && <Link to={prevPage}>← página anterior</Link>}
-      <p>
-        {currentPage} de {numPages}
-      </p>
-      {!isLast && <Link to={nextPage}>proxima página →</Link>}
+      {content}
     </S.PaginationWrapper>
   );
 }
 
 Pagination.propTypes = {
-  isFirst: PropTypes.bool.isRequired,
-  isLast: PropTypes.bool.isRequired,
-  currentPage: PropTypes.number.isRequired,
-  numPages: PropTypes.number.isRequired,
+  isFirst: PropTypes.bool,
+  isLast: PropTypes.bool,
+  currentPage: PropTypes.number,
+  numPages: PropTypes.number,
   prevPage: PropTypes.string,
   nextPage: PropTypes.string,
+  children: PropTypes.node,
 };

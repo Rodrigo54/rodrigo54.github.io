@@ -17,6 +17,7 @@ export const MenuBarWrapper = styled.aside`
   transition: background 0.5s;
   ${media.lessThan('large')`
     border-top: 1px solid var(--borders);
+    border-left: none;
     bottom: 0;
     flex-direction: row;
     height: auto;
@@ -51,12 +52,6 @@ export const MenuBarItem = styled.span`
   padding: 1.1rem;
   position: relative;
   width: 3.75rem;
-  &.light {
-    color: #d4d400;
-    &:hover {
-      color: #e2e240;
-    }
-  }
   &:hover {
     color: var(--highlight);
   }

@@ -1,4 +1,5 @@
 import Layout from '@components/layout/layout.component';
+import * as S from '@components/list-wrapper/list-wrapper.styled';
 import Pagination from '@components/pagination/pagination.component';
 import PostItem from '@components/post-item/post-item.component';
 import SEO from '@components/seo';
@@ -48,17 +49,19 @@ export default function BlogList({ pageContext, data }) {
   return (
     <Layout>
       <SEO title='Blog' />
-      {postList.map((post, index) => (
-        <PostItem
-          key={index}
-          slug={post.slug}
-          category='JS'
-          date={post.date}
-          timeToRead={post.timeToRead}
-          title={post.title}
-          description={post.description}
-        />
-      ))}
+      <S.ListWrapper>
+        {postList.map((post, index) => (
+          <PostItem
+            key={index}
+            slug={post.slug}
+            category='JS'
+            date={post.date}
+            timeToRead={post.timeToRead}
+            title={post.title}
+            description={post.description}
+          />
+        ))}
+      </S.ListWrapper>
       <Pagination
         isFirst={isFirst}
         isLast={isLast}
