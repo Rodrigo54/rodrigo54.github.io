@@ -24,10 +24,21 @@ export default function MenuBar() {
 
   const setPreferredTheme = () => {
     globalThis.__setPreferredTheme(isDarkMode ? 'light' : 'dark');
+    if (globalThis.DISQUS !== undefined) {
+      setTimeout(() => {
+        globalThis.DISQUS.reset({
+          reload: true,
+        });
+      }, 300);
+    }
   };
 
   const setPreferredConfig = () => {
     globalThis.__setPreferredConfig({ display: isListMode ? 'grid' : 'list' });
+  };
+
+  const toTop = () => {
+    globalThis.scroll({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -60,7 +71,7 @@ export default function MenuBar() {
         >
           {isListMode ? <Grid /> : <List />}
         </S.MenuBarItem>
-        <S.MenuBarItem title='Ir para o Topo'>
+        <S.MenuBarItem title='Ir para o Topo' onClick={() => toTop()}>
           <Arrow />
         </S.MenuBarItem>
       </S.MenuBarGroup>

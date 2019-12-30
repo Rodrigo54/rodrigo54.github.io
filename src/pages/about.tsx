@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '@components/layout/layout.component';
 import SEO from '@components/seo';
 
-export default function NotFoundPage() {
+export default function AboutPage() {
   return (
     <Layout>
       <SEO title='404: Not found' />
