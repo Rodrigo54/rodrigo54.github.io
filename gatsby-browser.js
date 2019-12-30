@@ -6,8 +6,8 @@
 
 // You can delete this file if you're not using it
 import "lazysizes";
-import "./src/styles/global.css";
-import "./src/styles/themes.css";
+import "./src/styles/global.scss";
+import "./src/styles/themes.scss";
 
 export const onClientEntry = () => {
   console.log("We've started!");
