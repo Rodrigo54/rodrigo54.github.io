@@ -59,7 +59,14 @@ module.exports = {
           },
           `gatsby-remark-embed-gist`,
           `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-vscode`,
+            colorTheme: {
+              defaultTheme: 'Dark+ (default dark)',    // Required
+              prefersDarkTheme: 'Dark+ (default dark)', // Optional: used with `prefers-color-scheme: dark`
+              prefersLightTheme: 'Light+ (default light)'    // Optional: used with `prefers-color-scheme: light`
+            }
+          }
         ]
       },
     },

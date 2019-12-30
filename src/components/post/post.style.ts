@@ -178,10 +178,12 @@ export const MainContent = styled.section`
       z-index: 3;
     }
   }
-  .gatsby-highlight {
-    padding: 0 1.6rem 1.6rem;
+  .vscode-highlight {
+    font-family: consolas;
+    line-height: 1.4;
+    margin: 0 1.6rem 1.6rem;
     ${media.lessThan('large')`
-      padding: 0;
+      margin: 0 0 1.6rem 0;
     `}
   }
   .instagram-media {

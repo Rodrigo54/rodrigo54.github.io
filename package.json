@@ -1,9 +1,21 @@
 {
-  "name": "gatsby-starter-default",
   "private": true,
+  "name": "rodrigoalves.me",
+  "title": "Site Rodrigo Alves",
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "4.0.0",
+  "author": "Rodrigo Alves Mesquita",
+  "homepage": "https://rodrigoalves.me/",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.12",
@@ -18,14 +30,13 @@
     "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-remark-images": "^3.1.39",
     "gatsby-remark-lazy-load": "^1.0.2",
-    "gatsby-remark-prismjs": "^3.3.28",
     "gatsby-remark-relative-images": "^0.2.3",
+    "gatsby-remark-vscode": "^1.4.0",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-remark": "^2.6.45",
     "gatsby-transformer-sharp": "^2.3.7",
     "gsap": "^3.0.4",
     "lazysizes": "^5.2.0",
-    "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-disqus-comments": "^1.4.0",
@@ -45,25 +56,5 @@
     "tslint": "^5.20.1",
     "tslint-react": "^4.1.0",
     "typescript": "^3.7.4"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
