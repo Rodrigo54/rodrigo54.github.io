@@ -8,7 +8,6 @@
 import "lazysizes";
 import "./src/styles/global.css";
 import "./src/styles/themes.css";
-import "prismjs/themes/prism-tomorrow.css";
 
 export const onClientEntry = () => {
   console.log("We've started!");
