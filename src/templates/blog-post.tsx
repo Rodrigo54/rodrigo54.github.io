@@ -16,6 +16,7 @@ export const query = graphql`
         title
         author
         description
+        thumbnail
         comments
         date_timestamp: date
         date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
@@ -40,7 +41,11 @@ export default function BlogPost({ data, pageContext }) {
     (<Comments identifier={identifier} url={slug} title={frontmatter.title} />) : undefined;
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        image={post.frontmatter.thumbnail}
+      />
       <S.PostHeader>
         <S.PostDate>
           {frontmatter.date} • {timeToRead} min de leitura
