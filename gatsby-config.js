@@ -11,10 +11,10 @@ module.exports = {
     siteUrl: `http://rodrigoalves.me`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet-async`,
-    `gatsby-plugin-typescript`,
      // needs to be the first to work with gatsby-remark-images
      {
       resolve: `gatsby-source-filesystem`,
@@ -55,11 +55,16 @@ module.exports = {
           `gatsby-remark-lazy-load`,
           {
             resolve: `gatsby-remark-vscode`,
-            colorTheme: {
-              defaultTheme: 'Dark+ (default dark)',    // Required
-              prefersDarkTheme: 'Dark+ (default dark)', // Optional: used with `prefers-color-scheme: dark`
-              prefersLightTheme: 'Light+ (default light)'    // Optional: used with `prefers-color-scheme: light`
-            }
+            options: {
+              theme: {
+                default: 'Dark+ (default dark)',
+                parentSelector: {
+                  // Any CSS selector will work!
+                  'body.dark': 'Dark+ (default dark)',
+                  'body.light': 'Light+ (default light)'
+                }
+              }
+            },
           }
         ]
       },

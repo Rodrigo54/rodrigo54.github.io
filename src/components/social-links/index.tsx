@@ -3,6 +3,7 @@ import { FacebookSquare } from 'styled-icons/boxicons-logos/FacebookSquare';
 import { Github } from 'styled-icons/boxicons-logos/Github';
 import { LinkedinSquare } from 'styled-icons/boxicons-logos/LinkedinSquare';
 import { Twitter } from 'styled-icons/boxicons-logos/Twitter';
+import * as S from './styles';
 
 const Icons = {
   Github,
@@ -11,9 +12,7 @@ const Icons = {
   FacebookSquare,
 };
 
-import * as S from './social-links.style';
-
-export default function SocialLinks() {
+const SocialLinks: React.FC = () => {
   const links = [
     {
       icon: 'Github',
@@ -62,3 +61,5 @@ export default function SocialLinks() {
     </S.SocialLinksWrapper>
   );
 }
+
+export default SocialLinks;

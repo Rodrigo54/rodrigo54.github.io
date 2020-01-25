@@ -1,10 +1,12 @@
-import Layout from '@components/layout/layout.component';
-import * as S from '@components/list-wrapper/list-wrapper.styled';
-import Pagination from '@components/pagination/pagination.component';
-import PostItem from '@components/post-item/post-item.component';
+import Layout from '@components/layout';
+import Pagination from '@components/pagination';
+import PostItem from '@components/post-item';
 import SEO from '@components/seo';
 import { graphql } from 'gatsby';
+import { Post } from 'model/Post';
 import React from 'react';
+
+import * as S from './styles';
 
 export const query = graphql`
   query PostList($skip: Int!, $limit: Int!) {
@@ -35,7 +37,17 @@ export const query = graphql`
   }
 `;
 
-export default function BlogList({ pageContext, data }) {
+type Props = {
+  pageContext: {
+    currentPage: number,
+    numPages: number,
+  };
+  data: {
+    allMarkdownRemark: { edges: { node: Post }[] }
+  };
+};
+
+const BlogList: React.FC<Props> = ({ pageContext, data }) => {
   const { currentPage, numPages } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
@@ -73,3 +85,5 @@ export default function BlogList({ pageContext, data }) {
     </Layout>
   );
 }
+
+export default BlogList;

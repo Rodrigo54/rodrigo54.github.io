@@ -6,11 +6,11 @@ import { Home } from 'styled-icons/boxicons-solid/Home';
 import { FormatColorFill as Light } from 'styled-icons/material/FormatColorFill';
 import { ThList as List } from 'styled-icons/typicons/ThList';
 
-import * as S from './menubar.style';
+import * as S from './styles';
 
-export default function MenuBar() {
-  const [theme, setTheme] = useState(null);
-  const [display, setDisplay] = useState(null);
+const MenuBar: React.FC = () => {
+  const [theme, setTheme] = useState<string | null>(null);
+  const [display, setDisplay] = useState<string | null>(null);
 
   const isDarkMode = theme === 'dark';
   const isListMode = display === 'list';
@@ -78,3 +78,5 @@ export default function MenuBar() {
     </S.MenuBarWrapper>
   );
 }
+
+export default MenuBar;

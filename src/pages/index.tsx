@@ -1,15 +1,20 @@
-import Layout from '@components/layout/layout.component';
-import * as S from '@components/list-wrapper/list-wrapper.styled';
-import Pagination from '@components/pagination/pagination.component';
-import PostItem from '@components/post-item/post-item.component';
+import Layout from '@components/layout';
+import * as S from '@templates/blog-list/styles';
+import Pagination from '@components/pagination';
+import PostItem from '@components/post-item';
 import SEO from '@components/seo';
 import getThemeColor from '@utils/getThemeColor';
 import { graphql, useStaticQuery } from 'gatsby';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import React from 'react';
+import { Post } from '@model/Post';
 
-export default function IndexPage() {
-  const { allMarkdownRemark } = useStaticQuery(
+type allMarkdownRemark = {
+  allMarkdownRemark: { edges: { node: Post }[] }
+};
+
+const IndexPage: React.FC = () => {
+  const { allMarkdownRemark } = useStaticQuery<allMarkdownRemark>(
     graphql`
       query{
         allMarkdownRemark(
@@ -74,3 +79,5 @@ export default function IndexPage() {
     </Layout>
   );
 }
+
+export default IndexPage;

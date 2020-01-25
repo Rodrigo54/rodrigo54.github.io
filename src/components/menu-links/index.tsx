@@ -1,10 +1,9 @@
 import getThemeColor from '@utils/getThemeColor';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import React from 'react';
 
-import * as S from './menu-links.style';
+import * as S from './styles';
 
-export default function MenuLinks() {
+const MenuLinks: React.FC = () => {
   const links = [
     {
       label: 'Home',
@@ -36,3 +35,5 @@ export default function MenuLinks() {
     </S.MenuLinksWrapper>
   );
 }
+
+export default MenuLinks;

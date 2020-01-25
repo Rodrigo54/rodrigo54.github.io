@@ -75,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
   const posts = result.data.allMarkdownRemark.edges
-  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post/index.tsx`);
 
   for (const { node, next, previous } of posts) {
     const path = `/blog${node.fields.slug}`;
@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
   Array.from({ length: numPages }).forEach((_, index) => {
     createPage({
       path: index === 0 ? `/blog/` : `/blog/page/${index + 1}`,
-      component: path.resolve(`./src/templates/blog-list.tsx`),
+      component: path.resolve(`./src/templates/blog-list/index.tsx`),
       context: {
         limit: postsPerPage,
         skip: index * postsPerPage,

@@ -1,12 +1,15 @@
 import { TransitionPortal } from 'gatsby-plugin-transition-link';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import MenuBar from '../menubar/menubar.component';
-import Sidebar from '../sidebar/sidebar.component';
-import * as S from './layout.style';
+import MenuBar from '../menubar';
+import Sidebar from '../sidebar';
+import * as S from './styles';
 
-export default function Layout({ children }) {
+type Props = {
+  children: React.ReactNode,
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <S.LayoutWrapper>
       <TransitionPortal level='top'>
@@ -22,6 +25,4 @@ export default function Layout({ children }) {
   );
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export default Layout;

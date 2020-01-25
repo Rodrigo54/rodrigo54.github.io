@@ -178,7 +178,7 @@ export const MainContent = styled.section`
       z-index: 3;
     }
   }
-  .vscode-highlight {
+  .grvsc-container {
     font-family: consolas;
     line-height: 1.4;
     margin: 0 1.6rem 1.6rem;

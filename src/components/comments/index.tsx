@@ -1,10 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDisqusComments from 'react-disqus-comments';
 
-import * as S from './comments.style';
+import * as S from './styles';
 
-export default function Comments({ url, title, identifier }) {
+type Props = {
+  url: string,
+  title: string,
+  identifier: number,
+};
+
+const Comments: React.FC<Props> = ({ url, title, identifier }) => {
   const completeURL = `https://rodrigoalves.me/blog${url}`;
   const disqusShortname = 'rodrigo-io';
 
@@ -21,8 +26,4 @@ export default function Comments({ url, title, identifier }) {
   );
 }
 
-Comments.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  identifier: PropTypes.number.isRequired,
-};
+export default Comments;

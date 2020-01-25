@@ -8,7 +8,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "allowJs": true,
     "module": "commonjs",
     "target": "esnext",
@@ -16,7 +16,9 @@
     "lib": ["dom", "esnext"],
     "paths": {
       "@components/*": ["components/*"],
+      "@templates/*": ["templates/*"],
       "@utils/*": ["utils/*"],
+      "@model/*": ["model/*"],
     },
   },
   "exclude": ["./node_modules"]

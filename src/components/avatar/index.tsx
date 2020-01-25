@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-import * as S from './avatar.style';
+import * as S from './styles';
 
-export default function Avatar() {
+const Avatar: React.FC = () => {
   const { avatarImg } = useStaticQuery(
     graphql`
       query {
@@ -19,3 +19,5 @@ export default function Avatar() {
   );
   return <S.AvatarWrapper fluid={avatarImg.childImageSharp.fluid} />;
 }
+
+export default Avatar;

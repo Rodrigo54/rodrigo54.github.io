@@ -1,18 +1,27 @@
 import getThemeColor from '@utils/getThemeColor';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import * as S from './post-item.style';
+import * as S from './styles';
 
-export default function PostItem({
+type Props = {
+  slug: string,
+  background?: string,
+  category: string,
+  date: string,
+  timeToRead: number,
+  title: string,
+  description: string,
+};
+
+const PostItem: React.FC<Props> = ({
   slug,
   background,
   category,
   date,
   timeToRead,
   title,
-  description,
-}) {
+  description
+}) => {
   return (
     <S.PostItemLink
       to={`/blog${slug}`}
@@ -35,12 +44,4 @@ export default function PostItem({
   );
 }
 
-PostItem.propTypes = {
-  slug: PropTypes.string.isRequired,
-  background: PropTypes.string,
-  category: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  timeToRead: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
+export default PostItem;

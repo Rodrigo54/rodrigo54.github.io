@@ -1,10 +1,12 @@
-import Comments from '@components/comments/comments.component';
-import Layout from '@components/layout/layout.component';
-import * as S from '@components/post/post.style';
-import RecommendedPosts from '@components/recommended-posts/recommended-posts.component';
+import Comments from '@components/comments';
+import Layout from '@components/layout';
+import RecommendedPosts from '@components/recommended-posts';
 import SEO from '@components/seo';
+import { Post } from '@model/Post';
 import { graphql } from 'gatsby';
 import React from 'react';
+
+import * as S from './styles';
 
 export const query = graphql`
   query Post($slug: String!) {
@@ -31,20 +33,44 @@ export const query = graphql`
   }
 `;
 
-export default function BlogPost({ data, pageContext }) {
-  const next = pageContext.nextPost;
-  const previous = pageContext.previousPost;
-  const post = data.markdownRemark;
-  const { frontmatter, timeToRead, html, fields: { slug } } = post;
+type node = {
+  fields: {
+    slug: string,
+  };
+  frontmatter: {
+    title: string,
+  }
+};
+
+type Props = {
+  data: { markdownRemark: Post };
+  pageContext: {
+    nextPost: node,
+    previousPost: node,
+  };
+};
+
+const BlogPost: React.FC<Props> = ({ data, pageContext: { nextPost, previousPost } }) => {
+  const next = nextPost ? {
+    slug: nextPost.fields.slug,
+    title: nextPost.frontmatter.title,
+  } : undefined;
+
+  const previous = previousPost ? {
+    slug: previousPost.fields.slug,
+    title: previousPost.frontmatter.title,
+  } : undefined;
+
+  const { frontmatter, timeToRead, html, fields: { slug } } = data.markdownRemark;
   const identifier = new Date(frontmatter.date_timestamp).getTime();
-  const comments =  frontmatter.comments ?
+  const comments = frontmatter.comments ?
     (<Comments identifier={identifier} url={slug} title={frontmatter.title} />) : undefined;
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        image={post.frontmatter.thumbnail}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        image={frontmatter.thumbnail}
       />
       <S.PostHeader>
         <S.PostDate>
@@ -61,3 +87,5 @@ export default function BlogPost({ data, pageContext }) {
     </Layout>
   );
 }
+
+export default BlogPost;

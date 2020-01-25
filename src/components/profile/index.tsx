@@ -1,11 +1,21 @@
 import getThemeColor from '@utils/getThemeColor';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import Avatar from '../avatar/avatar.component';
-import * as S from './profile.style';
+import Avatar from '../avatar';
+import * as S from './styles';
 
-export default function Profile() {
-  const { site } = useStaticQuery(
+type site = {
+  site: {
+    siteMetadata: {
+      title: string,
+      position: string,
+      description: string,
+    }
+  }
+}
+
+const Profile: React.FC = () => {
+  const { site } = useStaticQuery<site>(
     graphql`
       query {
         site {
@@ -38,3 +48,5 @@ export default function Profile() {
     </S.ProfileWrapper>
   );
 }
+
+export default Profile;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Layout from '@components/layout/layout.component';
+import Layout from '@components/layout';
 import SEO from '@components/seo';
 
-export default function AboutPage() {
+const AboutPage: React.FC = () => {
   return (
     <Layout>
       <SEO title='404: Not found' />
@@ -12,3 +12,5 @@ export default function AboutPage() {
     </Layout>
   );
 }
+
+export default AboutPage;

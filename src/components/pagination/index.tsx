@@ -1,11 +1,20 @@
 import getThemeColor from '@utils/getThemeColor';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import * as S from './pagination.style';
+import * as S from './styles';
 
-export default function Pagination({
+type Props = {
+  isFirst?: boolean,
+  isLast?: boolean,
+  currentPage?: number,
+  numPages?: number,
+  prevPage?: string,
+  nextPage?: string,
+  children?: React.ReactNode,
+};
+
+const Pagination: React.FC<Props> = ({
   isFirst,
   isLast,
   currentPage,
@@ -13,10 +22,8 @@ export default function Pagination({
   prevPage,
   nextPage,
   children,
-}) {
-
-  let content;
-
+}) => {
+  let content: React.ReactNode;
   if (children) {
     content = children;
   } else {
@@ -57,12 +64,4 @@ export default function Pagination({
   );
 }
 
-Pagination.propTypes = {
-  isFirst: PropTypes.bool,
-  isLast: PropTypes.bool,
-  currentPage: PropTypes.number,
-  numPages: PropTypes.number,
-  prevPage: PropTypes.string,
-  nextPage: PropTypes.string,
-  children: PropTypes.node,
-};
+export default Pagination;

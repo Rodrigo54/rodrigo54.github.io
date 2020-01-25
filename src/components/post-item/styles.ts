@@ -34,7 +34,7 @@ export const PostItemWrapper = styled.section`
 `;
 
 interface PostItemTagProps {
-  background: string;
+  background?: string;
 }
 
 export const PostItemTag = styled('div')<PostItemTagProps>`
