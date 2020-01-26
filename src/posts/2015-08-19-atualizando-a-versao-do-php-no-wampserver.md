@@ -3,7 +3,7 @@ title: 'Atualizando a versão do PHP no Wampserver'
 description: 'Use o PHP 5.6 no Wampserver.'
 date: '2015-08-19T20:30:00Z'
 author: 'Rodrigo Alves'
-thumbnail: 'img/home-bg.jpg'
+featuredImage: '../img/home-bg.jpg'
 comments: true
 music:
   title: 'There Might Be Coffee - deadmau5'

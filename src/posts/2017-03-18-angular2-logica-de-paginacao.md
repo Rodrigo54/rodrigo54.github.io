@@ -3,18 +3,13 @@ title: "Angular 2 - Lógica de Paginação"
 description: "Este é um exemplo de como implementar uma paginação em Angular 2 com uma lógica como a do Google."
 date: "2017-03-18 07:20:00 -0700"
 author: "Rodrigo Alves"
-thumbnail: "img/post-bg-07.jpg"
+featuredImage: "../img/post-bg-07.jpg"
 comments: true
 music:
   title: "Strobe - deadmau5"
   url: "https://open.spotify.com/track/6c9EGVj5CaOeoKd9ecMW1U"
 ---
-
-Este é um exemplo de como implementar uma paginação em Angular 2 e TypeScript com uma lógica de resultados de pesquisa do Google.
-
 ## Lógica de paginação do Google
-
-![Desert](/assets/img/post-bg-07.jpg)
 
 A lógica na paginação do Google é a seguinte:
 

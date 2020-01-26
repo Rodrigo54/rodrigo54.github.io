@@ -15,19 +15,16 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet-async`,
-     // needs to be the first to work with gatsby-remark-images
      {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/static/assets/img`,
+        path: `${__dirname}/src/img`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/posts`,
+        path: `${__dirname}/src/posts`,
       },
     },
     {
@@ -38,12 +35,6 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
-          {
-            resolve: "gatsby-remark-relative-images",
-            options: {
-              name: "images",
-            },
-          },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -59,7 +50,6 @@ module.exports = {
               theme: {
                 default: 'Dark+ (default dark)',
                 parentSelector: {
-                  // Any CSS selector will work!
                   'body.dark': 'Dark+ (default dark)',
                   'body.light': 'Light+ (default light)'
                 }
@@ -86,7 +76,7 @@ module.exports = {
         background_color: `#16202c`,
         theme_color: `#16202c`,
         display: `minimal-ui`,
-        icon: `static/assets/img/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/img/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sitemap`,
