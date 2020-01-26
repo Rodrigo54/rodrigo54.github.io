@@ -8,6 +8,7 @@ export const PostItemLink = styled(AniLink)`
   flex-direction: row;
   text-decoration: none;
   margin: 20px;
+  min-height: 240px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background: var(--color2);
@@ -31,7 +32,6 @@ export const PostItemWrapper = styled.section`
   align-items: flex-start;
   justify-content: flex-start;
   padding: 16px;
-  height: 210px;
   flex: 1.5;
   body#grid & {
     width: 100%;
@@ -45,9 +45,10 @@ interface PostItemThumbnailProps {
 
 export const PostItemThumbnail = styled(Img)<PostItemThumbnailProps>`
   width: 100%;
-  height: 210px;
+  height: 200px;
   margin: 0px 0px 15px;
   body#list & {
+    height: 240px;
     margin: 0px;
     flex: 1;
   }
