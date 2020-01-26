@@ -4,8 +4,8 @@ import media from 'styled-media-query';
 
 export const MenuBarWrapper = styled.aside`
   align-items: center;
-  background: var(--mediumBackground);
-  border-left: 1px solid var(--borders);
+  background: var(--color1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -16,8 +16,6 @@ export const MenuBarWrapper = styled.aside`
   width: 3.75rem;
   transition: background 0.5s;
   ${media.lessThan('large')`
-    border-top: 1px solid var(--borders);
-    border-left: none;
     bottom: 0;
     flex-direction: row;
     height: auto;
@@ -39,13 +37,13 @@ export const MenuBarLink = styled(AniLink)`
   display: block;
   &.active {
     span {
-      color: var(--highlight);
+      color: var(--color3-light);
     }
   }
 `;
 
 export const MenuBarItem = styled.span`
-  color: var(--texts);
+  color: var(--color1-contrast);
   cursor: pointer;
   display: block;
   height: 3.75rem;
@@ -53,7 +51,7 @@ export const MenuBarItem = styled.span`
   position: relative;
   width: 3.75rem;
   &:hover {
-    color: var(--highlight);
+    color: var(--color3-light);
   }
   &.display {
     ${media.lessThan('large')`
@@ -62,7 +60,7 @@ export const MenuBarItem = styled.span`
   }
   ${media.greaterThan('large')`
     &:hover {
-      color: var(--highlight);
+      color: var(--color3-light);
     }
   `}
   ${media.lessThan('large')`

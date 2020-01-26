@@ -2,7 +2,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 
 export const SocialLinksWrapper = styled.nav`
-  margin: 2rem auto;
+  margin: auto auto 0px;
   width: 100%;
   ${media.lessThan("large")`
     display: none;
@@ -19,16 +19,15 @@ export const SocialLinksList = styled.ul`
 export const SocialLinksItem = styled.li``
 
 export const SocialLinksLink = styled.a`
-  color: var(--texts);
+  color: var(--color1-contrast);
   text-decoration: none;
   transition: color 0.5s;
   &:hover {
-    color: var(--highlight);
+    color: var(--color3-light);
   }
 `
 
 export const IconWrapper = styled.div`
-  fill: #bbb;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 `

@@ -3,8 +3,8 @@ import media from 'styled-media-query';
 
 export const PaginationWrapper = styled.section`
   align-items: center;
-  border-top: 1px solid var(--borders);
-  color: var(--texts);
+  border-top: 1px solid var(--color1-light);
+  color: var(--color2-contrast);
   display: flex;
   padding: 1.5rem 3rem;
   justify-content: space-between;
@@ -13,11 +13,11 @@ export const PaginationWrapper = styled.section`
     padding: 1rem;
   `}
   a {
-    color: #8899a6;
+    color: var(--color2-contrast);
     text-decoration: none;
     transition: color 0.5s;
     &:hover {
-      color: #1fa1f2;
+      color: var(--color3-light);
     }
   }
 `;

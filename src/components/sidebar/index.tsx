@@ -8,8 +8,8 @@ import * as S from './styles';
 const Sidebar: React.FC = () => (
   <S.SidebarWrapper>
     <Profile />
-    <SocialLinks />
     <MenuLinks />
+    <SocialLinks />
   </S.SidebarWrapper>
 );
 

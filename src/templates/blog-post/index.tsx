@@ -9,7 +9,7 @@ import React from 'react';
 import * as S from './styles';
 
 export const query = graphql`
-  query Post($slug: String!) {
+  query PostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         slug
@@ -18,7 +18,14 @@ export const query = graphql`
         title
         author
         description
-        thumbnail
+        featuredImage {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         comments
         date_timestamp: date
         date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
@@ -62,6 +69,9 @@ const BlogPost: React.FC<Props> = ({ data, pageContext: { nextPost, previousPost
   } : undefined;
 
   const { frontmatter, timeToRead, html, fields: { slug } } = data.markdownRemark;
+
+  console.log(frontmatter);
+
   const identifier = new Date(frontmatter.date_timestamp).getTime();
   const comments = frontmatter.comments ?
     (<Comments identifier={identifier} url={slug} title={frontmatter.title} />) : undefined;
@@ -70,20 +80,23 @@ const BlogPost: React.FC<Props> = ({ data, pageContext: { nextPost, previousPost
       <SEO
         title={frontmatter.title}
         description={frontmatter.description}
-        image={frontmatter.thumbnail}
+        image={frontmatter.featuredImage.publicURL}
       />
-      <S.PostHeader>
-        <S.PostDate>
-          {frontmatter.date} • {timeToRead} min de leitura
-        </S.PostDate>
-        <S.PostTitle>{frontmatter.title}</S.PostTitle>
-        <S.PostDescription>{frontmatter.description}</S.PostDescription>
-      </S.PostHeader>
-      <S.MainContent>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </S.MainContent>
-      <RecommendedPosts next={next} previous={previous} />
-      {comments}
+      <S.PostThumbnail fluid={frontmatter.featuredImage.childImageSharp.fluid}/>
+      <S.PostPaper>
+        <S.PostHeader>
+          <S.PostTitle>{frontmatter.title}</S.PostTitle>
+          <S.PostDescription>{frontmatter.description}</S.PostDescription>
+          <S.PostDate>
+            {frontmatter.date} • {timeToRead} min de leitura
+          </S.PostDate>
+        </S.PostHeader>
+        <S.MainContent>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </S.MainContent>
+        <RecommendedPosts next={next} previous={previous} />
+        {comments}
+      </S.PostPaper>
     </Layout>
   );
 }
