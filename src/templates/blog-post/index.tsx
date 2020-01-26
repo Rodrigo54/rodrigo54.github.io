@@ -21,7 +21,7 @@ export const query = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1440) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -69,9 +69,6 @@ const BlogPost: React.FC<Props> = ({ data, pageContext: { nextPost, previousPost
   } : undefined;
 
   const { frontmatter, timeToRead, html, fields: { slug } } = data.markdownRemark;
-
-  console.log(frontmatter);
-
   const identifier = new Date(frontmatter.date_timestamp).getTime();
   const comments = frontmatter.comments ?
     (<Comments identifier={identifier} url={slug} title={frontmatter.title} />) : undefined;
