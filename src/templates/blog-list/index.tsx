@@ -24,6 +24,13 @@ export const query = graphql`
             title
             author
             description
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
             music {
               title
@@ -71,6 +78,7 @@ const BlogList: React.FC<Props> = ({ pageContext, data }) => {
             timeToRead={post.timeToRead}
             title={post.title}
             description={post.description}
+            featuredImage={post.featuredImage}
           />
         ))}
       </S.ListWrapper>

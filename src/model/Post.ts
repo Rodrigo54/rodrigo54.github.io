@@ -6,7 +6,7 @@ export interface Post {
     title: string,
     author: string,
     description: string,
-    thumbnail: string,
+    featuredImage: any,
     comments: string,
     date_timestamp: string,
     date: string,

@@ -28,6 +28,13 @@ const IndexPage: React.FC = () => {
                 title
                 author
                 description
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 400) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
                 date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
                 music{
                   title
@@ -61,6 +68,7 @@ const IndexPage: React.FC = () => {
             timeToRead={post.timeToRead}
             title={post.title}
             description={post.description}
+            featuredImage={post.featuredImage}
           />
         ))}
       </S.ListWrapper>
